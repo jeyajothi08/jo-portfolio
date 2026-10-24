@@ -1,0 +1,250 @@
+@import 'tailwindcss';
+
+/*
+ * Hand-drawn design system.
+ * Every colour, radius and shadow the components use is defined here once.
+ */
+
+/* Desktop-only scroll scenes. Keep in sync with SCENES in src/lib/gsap.js. */
+@custom-variant scene (@media (prefers-reduced-motion: no-preference) and (min-width: 80rem) and (min-height: 40rem));
+
+/* ---------- Colour tokens (single light palette) ---------- */
+:root {
+  color-scheme: light;
+  --paper: #fdfbf7; /* warm paper */
+  --ink: #2d2d2d; /* soft pencil black */
+  --ink-soft: #5a5a5a; /* pencil, lighter hand (6.7:1 on paper) */
+  --muted: #e5e0d8; /* old paper / erased pencil */
+  --marker: #ff4d4d; /* red correction marker: strokes, circles, tacks */
+  --marker-ink: #cc2b2b; /* the same marker pressed harder: red text and red fills behind white text (AA) */
+  --pen: #2d5da1; /* blue ballpoint */
+  --postit: #fff9c4; /* post-it yellow */
+  --card: #ffffff;
+  --tape: rgb(205 198 184 / 0.72);
+  --highlighter: #fff3a0;
+}
+
+@theme inline {
+  --color-paper: var(--paper);
+  --color-ink: var(--ink);
+  --color-ink-soft: var(--ink-soft);
+  --color-muted: var(--muted);
+  --color-marker: var(--marker);
+  --color-marker-ink: var(--marker-ink);
+  --color-pen: var(--pen);
+  --color-postit: var(--postit);
+  --color-card: var(--card);
+
+  /* Fallbacks are plain system faces: close enough in width that the page barely moves when the hand fonts arrive. */
+  --font-display: 'Kalam', ui-sans-serif, system-ui, sans-serif;
+  --font-body: 'Patrick Hand', ui-sans-serif, system-ui, sans-serif;
+  --font-sans: 'Patrick Hand', ui-sans-serif, system-ui, sans-serif;
+}
+
+@theme {
+  /* Wobbly edges: never a perfect curve. `rounded-wobbly`, `rounded-wobbly-md`, `rounded-blob`. */
+  --radius-wobbly: 255px 15px 225px 15px / 15px 225px 15px 255px;
+  --radius-wobbly-md: 15px 255px 15px 225px / 225px 15px 255px 15px;
+  --radius-blob: 58% 42% 55% 45% / 45% 55% 42% 58%;
+
+  /* Hard offset shadows: cut paper, never blur. `shadow-sketch`, `-sm`, `-lg`, `-soft`. */
+  --shadow-sketch-sm: 2px 2px 0 0 #2d2d2d;
+  --shadow-sketch: 4px 4px 0 0 #2d2d2d;
+  --shadow-sketch-lg: 8px 8px 0 0 #2d2d2d;
+  --shadow-sketch-soft: 3px 3px 0 0 rgb(45 45 45 / 0.12);
+
+  --animate-bob: bob 3s ease-in-out infinite;
+  --animate-spin-slow: spin 9s linear infinite;
+  --animate-blink: blink 1.05s steps(1) infinite;
+
+  @keyframes bob {
+    0%,
+    100% {
+      translate: 0 0;
+    }
+    50% {
+      translate: 0 -10px;
+    }
+  }
+  @keyframes blink {
+    50% {
+      opacity: 0;
+    }
+  }
+}
+
+/* ---------- Base ---------- */
+@layer base {
+  html {
+    scroll-padding-top: 6rem;
+    -webkit-text-size-adjust: 100%;
+  }
+
+  body {
+    background-color: var(--paper);
+    /* notebook grain */
+    background-image: radial-gradient(var(--muted) 1px, transparent 1px);
+    background-size: 24px 24px;
+    color: var(--ink);
+    font-family: var(--font-body);
+    font-size: 1.125rem;
+    line-height: 1.55;
+    overflow-x: clip;
+  }
+
+  h1,
+  h2,
+  h3 {
+    font-family: var(--font-display);
+    font-weight: 700;
+    text-wrap: balance;
+  }
+
+  p {
+    text-wrap: pretty;
+  }
+
+  :focus-visible {
+    outline: 3px dashed var(--pen);
+    outline-offset: 4px;
+  }
+
+  ::selection {
+    background: var(--postit);
+    color: var(--ink);
+  }
+}
+
+/* ---------- Layout ---------- */
+@utility shell {
+  width: 100%;
+  max-width: 72rem;
+  margin-inline: auto;
+  padding-inline: 1.25rem;
+
+  @media (width >= 48rem) {
+    padding-inline: 2rem;
+  }
+}
+
+/* ---------- Paper pieces ---------- */
+
+/* Translucent masking tape with torn ends. */
+.tape {
+  position: absolute;
+  z-index: 2;
+  width: 7.5rem;
+  height: 1.9rem;
+  background: var(--tape);
+  clip-path: polygon(
+    3% 0,
+    97% 0,
+    100% 18%,
+    96% 36%,
+    100% 54%,
+    96% 72%,
+    100% 90%,
+    97% 100%,
+    3% 100%,
+    0 82%,
+    4% 64%,
+    0 46%,
+    4% 28%,
+    0 10%
+  );
+}
+
+/* Red thumbtack. */
+.tack {
+  position: absolute;
+  z-index: 2;
+  width: 1.25rem;
+  height: 1.25rem;
+  border-radius: 50%;
+  background: var(--marker);
+  border: 2px solid var(--ink);
+  box-shadow: 2px 2px 0 0 var(--ink);
+}
+.tack::after {
+  content: '';
+  position: absolute;
+  top: 2px;
+  left: 3px;
+  width: 5px;
+  height: 5px;
+  border-radius: 50%;
+  background: rgb(255 255 255 / 0.75);
+}
+
+/* Ruled notebook page with a red margin line. */
+.ruled {
+  --rule: 2rem;
+  --margin: 3.25rem;
+  background-color: var(--card);
+  background-image:
+    linear-gradient(
+      to right,
+      transparent var(--margin),
+      rgb(255 77 77 / 0.5) var(--margin),
+      rgb(255 77 77 / 0.5) calc(var(--margin) + 2px),
+      transparent calc(var(--margin) + 2px)
+    ),
+    repeating-linear-gradient(
+      to bottom,
+      transparent 0,
+      transparent calc(var(--rule) - 1px),
+      rgb(45 93 161 / 0.2) calc(var(--rule) - 1px),
+      rgb(45 93 161 / 0.2) var(--rule)
+    );
+  background-position:
+    0 0,
+    0 var(--rule-offset, 0);
+}
+
+/* Pencil hatching, used where a picture will go. */
+.hatch {
+  background-color: var(--muted);
+  background-image: repeating-linear-gradient(-45deg, transparent 0 11px, rgb(45 45 45 / 0.09) 11px 13px);
+}
+
+/* Placeholder text such as [ROLE TYPES]: highlighter plus a red dashed underline. */
+.ph {
+  background: var(--highlighter);
+  color: var(--marker-ink);
+  border-bottom: 2px dashed var(--marker);
+  padding: 0 0.25em;
+  -webkit-box-decoration-break: clone;
+  box-decoration-break: clone;
+}
+
+/* Code in the notebook */
+.code-line {
+  display: grid;
+  grid-template-columns: var(--margin) 1fr;
+  min-height: var(--rule);
+}
+.code-line > .code-text {
+  white-space: pre-wrap;
+  padding-left: calc((var(--indent, 0) + 1) * 1.1em + 0.75rem);
+  text-indent: -1.1em;
+}
+
+.caret {
+  display: inline-block;
+  width: 0.09em;
+  height: 0.95em;
+  margin-left: 0.08em;
+  background: currentColor;
+  vertical-align: -0.1em;
+  animation: var(--animate-blink);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}

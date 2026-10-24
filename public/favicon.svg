@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64">
+  <title>JD</title>
+  <path d="M6 9 C 20 5, 44 6, 58 8 C 60 22, 59 44, 57 57 C 42 60, 20 59, 7 56 C 4 42, 5 22, 6 9 Z" fill="#fdfbf7" stroke="#2d2d2d" stroke-width="3" stroke-linejoin="round"/>
+  <g fill="none" stroke="#2d2d2d" stroke-width="5" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M26 16 C 26 24, 27 31, 25 37 C 23 43, 15 43, 13 37"/>
+    <path d="M33 16 C 33 26, 34 34, 33 43 M 33 16 C 48 14, 52 26, 49 34 C 46 42, 39 44, 33 43"/>
+  </g>
+  <path d="M12 50 C 24 47, 38 52, 52 48" fill="none" stroke="#ff4d4d" stroke-width="4" stroke-linecap="round"/>
+</svg>
