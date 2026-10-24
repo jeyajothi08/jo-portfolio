@@ -1,172 +1,279 @@
-# Jeyajothi D — Portfolio
+<div align="center">
 
-A single-page portfolio for Jeyajothi D, Full Stack Developer from Madurai, India, drawn in a hand-sketched style: marker headings, notebook paper, sticky notes, tape and wobbly pencil borders.
+# ✦ J E Y A J O T H I &nbsp; D ✦
+### 🖋️ Hand-Drawn Full-Stack Portfolio & Motion Experience
+**Crafted with React 19 • Vite • Tailwind CSS 4 • GSAP ScrollTrigger • Lenis**
 
-Built with React, Vite, Tailwind CSS 4, GSAP (ScrollTrigger) with Lenis smooth scrolling, and lucide-react. No backend: it builds to static files you can host on Vercel, Netlify or any static host.
+<p align="center">
+  <a href="https://jo-portfolio-two-neon.vercel.app" target="_blank">
+    <img src="https://img.shields.io/badge/🌐_Live_Demo-jo--portfolio-ff4d4d?style=for-the-badge&logoColor=white&labelColor=2d2d2d" alt="Live Demo" />
+  </a>
+  <a href="https://github.com/jeyajothi08/jo-portfolio" target="_blank">
+    <img src="https://img.shields.io/badge/⚡_GitHub-jeyajothi08-2d5da1?style=for-the-badge&logo=github&logoColor=white&labelColor=2d2d2d" alt="GitHub" />
+  </a>
+  <a href="https://www.linkedin.com/in/jeyajothi-d-a99544299" target="_blank">
+    <img src="https://img.shields.io/badge/💼_LinkedIn-Connect-0A66C2?style=for-the-badge&logo=linkedin&logoColor=white&labelColor=2d2d2d" alt="LinkedIn" />
+  </a>
+</p>
 
-## Run it locally
+<p align="center">
+  <img src="https://img.shields.io/badge/React_19-20232A?style=flat-square&logo=react&logoColor=61DAFB" />
+  <img src="https://img.shields.io/badge/Tailwind_CSS_v4-0F172A?style=flat-square&logo=tailwindcss&logoColor=38BDF8" />
+  <img src="https://img.shields.io/badge/Vite_8-646CFF?style=flat-square&logo=vite&logoColor=white" />
+  <img src="https://img.shields.io/badge/GSAP_ScrollTrigger-88CE02?style=flat-square&logo=greensock&logoColor=white" />
+  <img src="https://img.shields.io/badge/Lenis_Smooth_Scroll-111111?style=flat-square&logoColor=white" />
+  <img src="https://img.shields.io/badge/License-MIT-blue?style=flat-square" />
+</p>
 
-You need Node.js 20 or newer.
-
-```bash
-npm install
+```
+   ┌─────────────────────────────────────────────────────────────┐
+   │  📂 JEYAJOTHI.JS                                            │
+   │  ─────────────────────────────────────────────────────────  │
+   │   role        : "Full Stack Developer"                      │
+   │   location    : "Madurai, Tamil Nadu, India"                │
+   │   education   : "B.E. Computer Science & Design"            │
+   │   status      : "Available for Full Stack & AI Web Roles"   │
+   │   specialty   : "Clean UI ✦ Fast APIs ✦ Creative Motion"     │
+   └─────────────────────────────────────────────────────────────┘
 ```
 
+---
+
+<p align="center">
+  <a href="#-interactive-showcase"><b>Explore Features</b></a> •
+  <a href="#-architecture--motion-pipeline"><b>Architecture</b></a> •
+  <a href="#-tech-stack--tooling"><b>Tech Stack</b></a> •
+  <a href="#-featured-projects"><b>Projects</b></a> •
+  <a href="#-quick-start"><b>Quick Start</b></a>
+</p>
+
+</div>
+
+<br />
+
+---
+
+## 🎨 Interactive Showcase
+
+<details open>
+<summary><b>📐 1. Tactile Hand-Sketched Design System</b></summary>
+<br>
+
+Designed from the ground up to feel like authentic physical stationery rather than standard web components:
+- **Ruled Paper & Index Cards:** Real mathematical SVG patterns generating blue notebook lines and red margin boundaries.
+- **Wobbly Pencil Contours:** Hand-tuned irregular border-radius tokens (`rounded-wobbly`, `rounded-blob`) simulating authentic freehand pencil strokes.
+- **Physical Shadows:** Zero-blur hard-offset drop shadows (`4px 4px 0 var(--ink)`) for an unmistakable pop-art elevation.
+- **Stationery Accents:** Semi-transparent frosted adhesive tape (`.tape`), brass pushpins (`<Tack />`), and pastel yellow sticky notes (`<StickyNote />`).
+
+```
+  [ 📌 TACK ]
+  ┌──────────────────────────────────────────────────┐ ╱|
+  │  Sticky Note: Clean UI & Scalable APIs           │/ │ [ 🩹 TAPE ]
+  │  ──────────────────────────────────────────────  │  │
+  │  Drawn in felt-tip marker with irregular borders │ /
+  └──────────────────────────────────────────────────┘'
+```
+</details>
+
+<details open>
+<summary><b>🎬 2. Cinema-Grade GSAP & Lenis Motion Pipeline</b></summary>
+<br>
+
+Motion is engineered with strict performance budgets and buttery smooth synchronization:
+- **Unified Tick Loop:** Lenis momentum scrolling directly drives GSAP's internal ticker for artifact-free ScrollTrigger scrubbing.
+- **Scroll-to-Zoom Stage:** Hero notebook and About section scale seamlessly into full viewport view as scroll depth advances.
+- **Timeline Progression:** The Experience section features an animated red felt-tip marker path drawn dynamically down the margin while scrolling.
+- **Interactive Card Dealing:** Project entries are dealt out onto the desk with physics-based spring rotation when filters switch.
+</details>
+
+<details open>
+<summary><b>💾 3. Direct Local Resume Streamer</b></summary>
+<br>
+
+- Uses asynchronous Blob fetching (`window.URL.createObjectURL(blob)`) to guarantee direct local downloading rather than trapping users inside in-browser PDF viewers.
+- Fallback anchor dispatch ensures instantaneous downloading across Safari, Chrome, Firefox, and mobile browsers.
+</details>
+
+<br />
+
+---
+
+## 🧬 Architecture & Motion Pipeline
+
+```mermaid
+graph TD
+    UserScroll[User Wheel / Touch / Keyboard] --> Lenis[Lenis Smooth Scroller]
+    Lenis --> GSAPTick[GSAP Internal Ticker Loop]
+    GSAPTick --> ST[ScrollTrigger Coordinator]
+    
+    subgraph Viewport Scenes
+      ST -->|Scrub %| HeroZoom[Hero Notebook 3D Tilt]
+      ST -->|Position Track| PathDraw[Experience Marker Line Draw]
+      ST -->|Filter Select| CardDeal[Card Dealing Physics Animation]
+    end
+    
+    subgraph Data Layer
+      Config[(src/data/portfolio.js)] --> UIComponents[React 19 Components]
+      Config --> ViteMeta[Vite SEO & Head Meta Injector]
+    end
+```
+
+<br />
+
+---
+
+## 🛠️ Tech Stack & Tooling
+
+<div align="center">
+
+| Core Framework | Styling & Theming | Motion Engine | Asset Pipeline |
+| :---: | :---: | :---: | :---: |
+| ![React](https://img.shields.io/badge/React_19-20232A?style=for-the-badge&logo=react&logoColor=61DAFB) | ![Tailwind](https://img.shields.io/badge/Tailwind_4-38BDF8?style=for-the-badge&logo=tailwindcss&logoColor=white) | ![GSAP](https://img.shields.io/badge/GSAP_3-88CE02?style=for-the-badge&logo=greensock&logoColor=white) | ![Vite](https://img.shields.io/badge/Vite_8-646CFF?style=for-the-badge&logo=vite&logoColor=white) |
+| **React 19 Core**<br>Functional Components, Hooks | **Tailwind CSS v4**<br>Native CSS Variables, Zero-Runtime | **GSAP & ScrollTrigger**<br>Timeline Scrubbing & Pinning | **Vite Next-Gen Bundler**<br>Lightning Fast HMR & Build |
+
+<br />
+
+| Category | Technologies |
+| :--- | :--- |
+| **Frontend** | React 19, JavaScript (ESNext), Tailwind CSS 4, HTML5 Semantic Structure |
+| **Motion & Audio** | GSAP 3, ScrollTrigger, Lenis Smooth Scroll |
+| **Icons & Typography** | Lucide React, Google Fonts (`Kalam`, `Patrick Hand`) |
+| **Backend & APIs** | Node.js, Express, Python, FastAPI, RESTful APIs |
+| **Database & Cloud** | MongoDB, PostgreSQL, Firebase Firestore, MySQL, Redis |
+| **AI / ML** | OpenAI GPT-4o API, Scikit-learn, Pandas, NumPy |
+| **DevOps & Hosting** | Git, GitHub, Vercel, Netlify |
+
+</div>
+
+<br />
+
+---
+
+## 🚀 Featured Projects
+
+<table>
+  <tr>
+    <td width="33%" valign="top">
+      <h3 align="center">🤖 SalesPilot</h3>
+      <p align="center"><b>AI Sales Automation & CRM</b></p>
+      <p>An enterprise-grade CRM with automated workflows, background job workers, and GPT-4o integration for lead generation.</p>
+      <p align="center">
+        <code>React</code> <code>Vite</code> <code>FastAPI</code> <code>PostgreSQL</code> <code>Redis</code> <code>Celery</code> <code>OpenAI</code>
+      </p>
+      <p align="center">
+        <a href="https://github.com/jeyajothi08/SalesPilot"><b>View Source Code ➜</b></a>
+      </p>
+    </td>
+    <td width="33%" valign="top">
+      <h3 align="center">🩺 Lung Cancer AI</h3>
+      <p align="center"><b>Predictive Diagnostic ML</b></p>
+      <p>Machine learning classification engine trained on patient biomarkers to predict early pulmonary oncology indicators.</p>
+      <p align="center">
+        <code>Python</code> <code>Scikit-learn</code> <code>Pandas</code> <code>NumPy</code>
+      </p>
+      <p align="center">
+        <a href="https://github.com/jeyajothi08/lung-cancer"><b>View Source Code ➜</b></a>
+      </p>
+    </td>
+    <td width="33%" valign="top">
+      <h3 align="center">🌿 Plant Disease Detector</h3>
+      <p align="center"><b>Computer Vision Web App</b></p>
+      <p>Agricultural diagnostic application classifying leaf pathologies instantly from high-resolution user photo uploads.</p>
+      <p align="center">
+        <code>Python</code> <code>Flask</code> <code>Scikit-learn</code> <code>OpenCV</code>
+      </p>
+      <p align="center">
+        <a href="#projects"><b>Interactive Preview ➜</b></a>
+      </p>
+    </td>
+  </tr>
+</table>
+
+<br />
+
+---
+
+## ⚡ Quick Start
+
+Clone and launch your local development server in seconds:
+
 ```bash
+# 1. Clone the repository
+git clone https://github.com/jeyajothi08/jo-portfolio.git
+
+# 2. Enter the workspace
+cd jo-portfolio
+
+# 3. Install dependencies
+npm install
+
+# 4. Start local development server
 npm run dev
 ```
 
-Open http://localhost:5173. The page reloads as you save.
+Visit **`http://localhost:5173`** to interact with the live dev server with instantaneous hot-module replacement.
+
+### 📦 Production Build & Testing
 
 ```bash
+# Compile optimized bundle to dist/
 npm run build
-```
 
-```bash
+# Preview production build locally
 npm run preview
 ```
 
-`build` writes the finished site to `dist/`, and `preview` serves that folder at http://localhost:4173 so you can check the production version.
+<br />
 
-## Edit the content
+---
 
-Every word on the site lives in **`src/data/portfolio.js`**. You never need to open a component to change text.
-
-| To change | Edit in `portfolio.js` |
-| --- | --- |
-| Name, role, tagline, location, email, social links | `profile` |
-| Browser tab title, search description, social preview | `site` |
-| Navbar links and the Resume button label | `nav` |
-| "Hello, I'm", typing words, buttons, the "start here!" note, the notebook | `hero` |
-| The zoom heading, the circled word, bio, polaroid caption, quick facts | `about` |
-| The stack diagram: boxes, arrow labels, the pinned Tools note | `skills` |
-| Jobs and internships | `experience.items` |
-| Projects and filter tabs | `projects.items`, `projects.filters` |
-| Degrees | `education.items` |
-| Contact text, the "say hi!" note, form labels, Formspree ID | `contact` |
-| Footer line | `footer` |
-
-**Placeholders.** Anything written in `[SQUARE BRACKETS]` is a placeholder. It shows on the page in yellow highlighter with a red dashed underline until you replace it. Search the file for `[` to find them all.
-
-**Add a project.** Copy one object in `projects.items` and fill it in:
-
-```js
-{
-  title: 'Task Board',
-  description: 'A drag-and-drop task board with real-time sync for small teams.',
-  tags: ['React', 'Node.js', 'Socket.io'],
-  category: 'Full Stack',            // must match one of projects.filters
-  image: '/projects/task-board.jpg', // put the file in public/projects/ (16:9 works best)
-  liveUrl: 'https://task-board.vercel.app',
-  codeUrl: 'https://github.com/jeyajothi08/task-board',
-},
-```
-
-With `image: ''` the card shows a pencil-hatched stand-in. A link left as a `[PLACEHOLDER]` shows a dashed, greyed-out circle, so there are no dead links.
-
-**The stack diagram (Skills).** Groups are drawn in order as boxes joined by arrows: Frontend → Backend → Database. `skills.flowLabels` are the words written on those arrows. A group with `pinned: true` (AI & ML, Tools) is stuck to the sheet as a post-it instead. The `icon` can be `frontend`, `backend`, `database`, `tools` or `ai`; to use another, import it from `lucide-react` in `src/components/Skills.jsx` and add it to the `icons` map.
-
-**Add a job.** Add an object to `experience.items`. When `end` is `'Present'`, its timeline dot pulses.
-
-### Files in `public/`
-
-| File | What to do |
-| --- | --- |
-| `profile.jpg` | Your photo in the polaroid (portrait, 800×1000). If it is ever removed, the polaroid shows a "JD" sketch instead. Restart `npm run dev` after replacing it. |
-| `resume.pdf` | Your resume. Replace it with a newer one any time and keep the same name; visitors download it as `Jeyajothi_D_Resume.pdf` (set in `profile.resumeDownloadName`). |
-| `og-image.png` | The 1200×630 image shown when the link is shared on LinkedIn, WhatsApp and similar apps. |
-| `favicon.svg` | The hand-drawn "JD" browser-tab icon. |
-
-### Contact form (Formspree)
-
-1. Create a free form at [formspree.io](https://formspree.io).
-2. Copy its ID: the part after `/f/` in the endpoint, e.g. `xyzabcde`.
-3. Set `contact.formspreeId: 'xyzabcde'` in `portfolio.js`.
-
-Until the ID is set, pressing **Send message** opens the visitor's email app with the message already written, and a small highlighted note under the form says so.
-
-### Site address
-
-After the first deploy, set `site.url` to your live address, e.g. `'https://jeyajothi.vercel.app'`. Link previews and the canonical URL use it. The title, description and Open Graph tags are written into `index.html` at build time from `site` and `profile`.
-
-> Saving `portfolio.js` makes the dev server restart for a moment, because it also builds the `<head>` tags from that file. This is expected.
-
-## The design system
-
-All colours, radii and shadows are defined once, at the top of **`src/index.css`**, and every component uses them through Tailwind classes:
-
-| Token | Value | Tailwind class |
-| --- | --- | --- |
-| Paper (background) | `#fdfbf7` | `bg-paper` |
-| Pencil (text, borders) | `#2d2d2d` | `text-ink`, `border-ink` |
-| Soft pencil (secondary text) | `#5a5a5a` | `text-ink-soft` |
-| Old paper | `#e5e0d8` | `bg-muted` |
-| Red marker (strokes, circles, tacks) | `#ff4d4d` | `text-marker`, `bg-marker` |
-| Red marker, pressed hard (red text, red fills behind white text) | `#cc2b2b` | `text-marker-ink`, `bg-marker-ink` |
-| Blue ballpoint | `#2d5da1` | `text-pen`, `bg-pen` |
-| Post-it | `#fff9c4` | `bg-postit` |
-| Wobbly edges | irregular `border-radius` | `rounded-wobbly`, `rounded-wobbly-md`, `rounded-blob` |
-| Hard offset shadows | `4px 4px 0` (and `2px`, `8px`) | `shadow-sketch`, `shadow-sketch-sm`, `shadow-sketch-lg` |
-
-The bright marker red `#ff4d4d` only reaches 3.2:1 against paper, which fails WCAG AA for text. It is kept for drawn marks, and red text and red buttons use the deeper `#cc2b2b` (5.3:1).
-
-Fonts: **Kalam** (headings, like a felt-tip marker) and **Patrick Hand** (body), from Google Fonts.
-
-Reusable pieces live in `src/components/ui/`:
-
-- `Sketch.jsx`: `SketchButton` (presses flat on click), `StickyNote`, `RoughCircle`, `Tape`, `Tack`, `CornerMarks`
-- `Doodles.jsx`: `Underline`, `CircleScribble`, `Arrow`, `FlowArrow`, `Squiggle`, `Star`, `Loop`, `Tick`
-- `Reveal.jsx`: drops content onto the page as it scrolls into view
-
-## Motion
-
-- **Smooth scrolling** uses Lenis, driven by GSAP's ticker so the scroll scenes stay in step. Native scrolling is kept underneath, so keyboard scrolling, sticky sections and `#anchor` links all work. Anchor links glide to their section and stop below the navbar.
-- **Hero:** on load the post-it is stuck on, the name is written and underlined, and the notebook drops onto the desk. As you scroll away, the notebook comes forward (scroll to zoom).
-- **About (scroll to zoom):** "Building beyond the code" starts far too big for the screen and settles to size while the section is held in place, then "beyond" gets circled in marker.
-- **Skills (scroll to expand):** a small tilted sheet grows to fill the screen, then the stack boxes are dealt onto it, the arrows draw themselves and the Tools post-it is stuck on.
-- **Everywhere else:** sections drop in as they arrive, the experience timeline is drawn down in marker as you scroll, project cards are dealt like cards and re-dealt when you change the filter, and a red marker line under the navbar fills as you read.
-
-The two held scenes only run on screens at least 1280px wide and 640px tall. On phones and tablets the same sections show as normal stacked content with lighter animations.
-
-With "reduce motion" turned on in the operating system, smooth scrolling is off, nothing is held or zoomed, and all content is simply there.
-
-## Deploy to Vercel
-
-1. Push this folder to a GitHub repository.
-2. Go to [vercel.com/new](https://vercel.com/new), sign in with GitHub and import the repository.
-3. Vercel detects Vite on its own. The settings should read:
-   - Build command: `npm run build`
-   - Output directory: `dist`
-4. Click **Deploy**. Every push to the main branch redeploys the site.
-5. Copy the live URL into `site.url` in `portfolio.js`, then commit and push.
-
-Or deploy from the terminal with the Vercel CLI:
-
-```bash
-npx vercel --prod
-```
-
-## Deploy to Netlify
-
-`netlify.toml` already sets the build command (`npm run build`) and publish folder (`dist`). Import the repository at [app.netlify.com](https://app.netlify.com/start), or run `npm run build` and drag the `dist` folder onto the Netlify dashboard.
-
-## Project structure
+## 📂 Repository Anatomy
 
 ```
-public/                 favicon, Open Graph image, resume, robots.txt (and your profile.jpg)
-src/
-  data/portfolio.js     all site content (edit this)
-  components/           Navbar, Hero, About, Skills, Experience, Projects, Education, Contact, Footer
-  components/ui/        sketch pieces, doodles, scroll reveal, section heading, placeholder highlight, brand icons
-  lib/gsap.js           GSAP setup and the media conditions for the scenes
-  lib/hooks.js          smooth scroll, active section, typing effect, reduced-motion check
-  index.css             design tokens, fonts, paper textures
-index.html              page shell
-vite.config.js          builds the <head> SEO tags from portfolio.js
+jo-portfolio/
+├── 📁 public/
+│   ├── favicon.svg          # Custom hand-drawn JD emblem
+│   ├── og-image.png         # OpenGraph social card (1200x630)
+│   ├── profile.jpg          # Polaroid profile photograph
+│   └── resume.pdf           # Offline curriculum vitae
+├── 📁 src/
+│   ├── 📁 components/       # Application views & section modules
+│   │   ├── About.jsx        # Zoom-in stage & interactive polaroid
+│   │   ├── Contact.jsx      # Formspree endpoint & email action
+│   │   ├── Education.jsx    # Index-card academic history
+│   │   ├── Experience.jsx   # Dynamic drawn timeline track
+│   │   ├── Hero.jsx         # Felt-tip typography & notebook card
+│   │   ├── Navbar.jsx       # Floating paper header & scroll gauge
+│   │   ├── Projects.jsx     # Card-dealing gallery with category tabs
+│   │   └── Skills.jsx       # Stack box diagrams & pinned sticky notes
+│   ├── 📁 components/ui/    # Reusable sketch & doodle components
+│   ├── 📁 data/
+│   │   └── portfolio.js     # Single source of truth for all content
+│   ├── 📁 lib/              # GSAP animations, Lenis scroller, downloaders
+│   ├── index.css            # Hand-drawn design tokens & paper hatchings
+│   ├── main.jsx             # React DOM root entry
+│   └── App.jsx              # Application layout root
+├── package.json
+└── vite.config.js           # Headless SEO & build-time metadata plugin
 ```
 
-## Quality notes
+<br />
 
-- Lighthouse on the production build: performance 91–96 on simulated mobile (it varies with how fast Google Fonts answers) and 96–97 on desktop, with 100 for accessibility, best practices and SEO.
-- No horizontal scrolling at any width from 360px up.
-- Semantic sections with headings, alt text, a skip link, dashed blue focus rings, and a mobile menu that works by keyboard (Escape closes it and returns focus to the button).
+---
+
+## 📮 Get In Touch
+
+<div align="center">
+
+**Jeyajothi D** — Full Stack Developer  
+*Madurai, Tamil Nadu, India*
+
+[![LinkedIn](https://img.shields.io/badge/LinkedIn-0A66C2?style=for-the-badge&logo=linkedin&logoColor=white)](https://www.linkedin.com/in/jeyajothi-d-a99544299)
+[![GitHub](https://img.shields.io/badge/GitHub-181717?style=for-the-badge&logo=github&logoColor=white)](https://github.com/jeyajothi08)
+[![Email](https://img.shields.io/badge/Email-EA4335?style=for-the-badge&logo=gmail&logoColor=white)](mailto:jeyajothi18082005@gmail.com)
+
+<br />
+
+<sub>Designed & Engineered by **Jeyajothi D** • Open Source</sub>
+
+</div>
