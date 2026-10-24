@@ -37,8 +37,8 @@ export default function Experience() {
         />
 
         <div ref={timeline} className="relative pl-14 sm:pl-16">
-          <span aria-hidden="true" className="absolute bottom-2 left-[15px] top-2 border-l-[3px] border-dashed border-ink/30" />
-          <span aria-hidden="true" data-line className="absolute bottom-2 left-[15px] top-2 w-[3px] origin-top rounded-full bg-marker" />
+          <span aria-hidden="true" className="absolute bottom-2 left-3.75 top-2 border-l-[3px] border-dashed border-ink/30" />
+          <span aria-hidden="true" data-line className="absolute bottom-2 left-3.75 top-2 w-0.75 origin-top rounded-full bg-marker" />
 
           <Reveal as="ol" className="space-y-14">
             {experience.items.map((job) => {
@@ -56,7 +56,7 @@ export default function Experience() {
                     {job.start} – <span className={current ? 'text-marker-ink' : ''}>{job.end}</span>
                   </p>
 
-                  <article className="relative mt-4 rounded-wobbly-md border-2 border-ink bg-card p-6 shadow-sketch transition-[rotate,box-shadow] duration-100 hover:-rotate-[0.5deg] hover:shadow-sketch-lg sm:p-9">
+                  <article className="relative mt-4 rounded-wobbly-md border-2 border-ink bg-card p-6 shadow-sketch transition-[rotate,box-shadow] duration-100 hover:rotate-[-0.5deg] hover:shadow-sketch-lg sm:p-9">
                     <Tack className="-top-2.5 left-1/2 -translate-x-1/2" />
                     <div className="flex flex-wrap items-center gap-x-4 gap-y-3">
                       <h3 className="text-3xl leading-tight md:text-4xl">{job.role}</h3>

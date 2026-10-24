@@ -48,10 +48,10 @@ export default function Skills() {
           <div className="shell scene:max-w-none scene:px-8">
             <div
               data-sheet
-              className="relative mx-auto rounded-wobbly-md border-[3px] border-ink bg-card p-6 shadow-sketch-lg sm:p-10 scene:flex scene:h-[calc(100svh-7.5rem)] scene:max-w-[84rem] scene:flex-col scene:justify-center scene:px-16 scene:py-7!"
+              className="relative mx-auto rounded-wobbly-md border-[3px] border-ink bg-card p-6 shadow-sketch-lg sm:p-10 scene:flex scene:h-[calc(100svh-7.5rem)] scene:max-w-336 scene:flex-col scene:justify-center scene:px-16 scene:py-7!"
             >
-              <Tape className="-left-5 top-6 -rotate-[38deg]" />
-              <Tape className="-right-5 bottom-8 -rotate-[38deg]" />
+              <Tape className="-left-5 top-6 rotate-[-38deg]" />
+              <Tape className="-right-5 bottom-8 rotate-[-38deg]" />
 
               <div className="grid items-start gap-10 lg:grid-cols-[1fr_auto]">
                 <div>
@@ -65,7 +65,7 @@ export default function Skills() {
                 </div>
 
                 {pinned.length > 0 && (
-                  <div className="grid gap-6 sm:grid-cols-2 lg:mt-2 lg:w-[19rem] lg:grid-cols-1 lg:gap-4 xl:w-[36rem] xl:grid-cols-2">
+                  <div className="grid gap-6 sm:grid-cols-2 lg:mt-2 lg:w-76 lg:grid-cols-1 lg:gap-4 xl:w-144 xl:grid-cols-2">
                     {pinned.map((group, i) => (
                       <PinnedGroup key={group.name} group={group} tilt={i % 2 ? '-rotate-2' : 'rotate-2'} />
                     ))}

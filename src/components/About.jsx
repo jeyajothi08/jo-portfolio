@@ -40,12 +40,12 @@ export default function About() {
   return (
     <section id="about" aria-labelledby="about-title">
       <div ref={stage} className="relative scene:h-[210vh]">
-        <div className="flex items-center justify-center overflow-hidden px-5 pb-12 pt-20 scene:sticky scene:top-0 scene:h-[100svh] scene:p-0">
+        <div className="flex items-center justify-center overflow-hidden px-5 pb-12 pt-20 scene:sticky scene:top-0 scene:h-svh scene:p-0">
           <div className="text-center">
             <div data-zoom="note">
               <StickyNote className="-rotate-3">{about.label}</StickyNote>
             </div>
-            <h2 id="about-title" data-zoom="text" className="mt-6 text-[clamp(2.75rem,12vw,9.5rem)] leading-[1]">
+            <h2 id="about-title" data-zoom="text" className="mt-6 text-[clamp(2.75rem,12vw,9.5rem)] leading-none">
               <Circled text={about.heading} word={about.headingCircle} />
             </h2>
           </div>
@@ -53,7 +53,7 @@ export default function About() {
       </div>
 
       <div className="shell grid items-center gap-16 pb-16 pt-6 md:grid-cols-[1.3fr_1fr] md:gap-12 lg:gap-20">
-        <Reveal className="max-w-[38rem] space-y-6 text-xl leading-relaxed md:text-2xl">
+        <Reveal className="max-w-152 space-y-6 text-xl leading-relaxed md:text-2xl">
           {about.paragraphs.map((paragraph) => (
             <Item as="p" key={paragraph.slice(0, 24)}>
               <Rich text={paragraph} />
@@ -98,7 +98,7 @@ function Circled({ text, word }) {
       {text.slice(0, at)}
       <span className="relative inline-block">
         {word}
-        <CircleScribble className="pointer-events-none absolute -inset-x-[22%] -inset-y-[22%] h-[144%] w-[144%] text-marker" />
+        <CircleScribble className="pointer-events-none absolute inset-x-[-22%] inset-y-[-22%] h-[144%] w-[144%] text-marker" />
       </span>
       {text.slice(at + word.length)}
     </>
