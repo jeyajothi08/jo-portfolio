@@ -44,7 +44,7 @@ export default function Skills() {
   return (
     <section id="skills" aria-labelledby="skills-title">
       <div ref={stage} className="relative scene:h-[230vh]">
-        <div className="py-16 md:py-24 scene:sticky scene:top-0 scene:flex scene:h-[100svh] scene:items-center scene:overflow-hidden scene:py-0 scene:pt-16">
+        <div className="py-16 md:py-24 scene:sticky scene:top-0 scene:flex scene:h-svh scene:items-center scene:overflow-hidden scene:py-0 scene:pt-16">
           <div className="shell scene:max-w-none scene:px-8">
             <div
               data-sheet
@@ -65,7 +65,7 @@ export default function Skills() {
                 </div>
 
                 {pinned.length > 0 && (
-                  <div className="grid gap-6 sm:grid-cols-2 lg:mt-2 lg:w-76 lg:grid-cols-1 lg:gap-4 xl:w-144 xl:grid-cols-2">
+                  <div className="grid gap-6 sm:grid-cols-2 lg:mt-2 lg:w-76 lg:grid-cols-1 lg:gap-4 xl:w-xl xl:grid-cols-2">
                     {pinned.map((group, i) => (
                       <PinnedGroup key={group.name} group={group} tilt={i % 2 ? '-rotate-2' : 'rotate-2'} />
                     ))}
