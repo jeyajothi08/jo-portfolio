@@ -33,7 +33,7 @@
    │   location    : "Madurai, Tamil Nadu, India"                │
    │   education   : "B.E. Computer Science & Design"            │
    │   status      : "Available for Full Stack & AI Web Roles"   │
-   │   specialty   : "Clean UI ✦ Fast APIs ✦ Creative Motion"     │
+   │   specialty   : "Clean UI ✦ Fast APIs ✦ Creative Motion"   │
    └─────────────────────────────────────────────────────────────┘
 ```
 
